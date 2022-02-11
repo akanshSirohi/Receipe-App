@@ -8,22 +8,17 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("DailyMeal"),
+    return GridView(
+      padding: const EdgeInsets.all(20),
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 250,
+        childAspectRatio: (3 / 2),
+        mainAxisSpacing: 20,
+        crossAxisSpacing: 20,
       ),
-      body: GridView(
-        padding: const EdgeInsets.all(20),
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 250,
-          childAspectRatio: (3 / 2),
-          mainAxisSpacing: 20,
-          crossAxisSpacing: 20,
-        ),
-        children: DUMMY_CATEGORIES.map((catg) {
-          return CategoryItem(catg.id, catg.title, catg.color);
-        }).toList(),
-      ),
+      children: DUMMY_CATEGORIES.map((catg) {
+        return CategoryItem(catg.id, catg.title, catg.color);
+      }).toList(),
     );
   }
 }
